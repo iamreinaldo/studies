@@ -15,6 +15,7 @@ def mostrarCarros():
 def alugarCarro(carro):
     for i in listaDeCarros: 
         if carro == i:
+
             carrosAlugados[i] = listaDeCarros.pop(i)
             return print("Carro alugado com sucesso!\n")
 
@@ -49,8 +50,17 @@ while True:
     elif escolha == "2":
         mostrarCarros()
         carro = int(input("Escolha o carro:\n"))
-        alugarCarro(carro)
-        segundaEscolha = input("\nQualquer botão para ir para oMenu iniciar | 2 - Finalizar\n")
+        dias = int(input("Quantos dias deseja alugar o carro?\n"))
+        total = dias * listaDeCarros[carro][1]
+        decisao = input("O valor total é R${}, deseja alugar? s ou n\n".format(total))
+        if decisao == "s":
+            alugarCarro(carro)
+        elif decisao == "n":
+            clear()
+            print("Agradecemos o seu contato")
+        else:
+            print("Opção inválida")
+        segundaEscolha = input("\nQualquer botão para ir para o Menu iniciar | 2 - Finalizar\n")
         clear()
         if segundaEscolha == "2": 
             break
