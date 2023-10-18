@@ -66,14 +66,21 @@ while True:
             break
 
     elif escolha == "3":
-        mostrarCarrosAlugados()
-        print("\n===============================")
-        carroDevolvido = int(input("Qual carro deseja devolver?"))
-        devolverCarro(carro)
-        segundaEscolha = input("\nQualquer Botão para ir para o Menu iniciar | 2 - Finalizar\n")
-        clear()
-        if segundaEscolha == "2": 
-            break
+        if len(carrosAlugados) == 0:
+            print("Não há carros para devolver")
+            segundaEscolha = input("\nQualquer Botão para ir para o Menu iniciar | 2 - Finalizar\n")
+            clear()
+            if segundaEscolha == "2": 
+                break
+        else:
+            mostrarCarrosAlugados()
+            print("\n===============================")
+            carroDevolvido = int(input("Qual carro deseja devolver?"))
+            devolverCarro(carro)
+            segundaEscolha = input("\nQualquer Botão para ir para o Menu iniciar | 2 - Finalizar\n")
+            clear()
+            if segundaEscolha == "2": 
+                break
     elif escolha == "4":
         break
 
